@@ -1,1 +1,1 @@
-module.exports = require('body-scroll-lock');
+module.exports = require('./body-scroll-lock');
