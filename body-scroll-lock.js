@@ -8,7 +8,9 @@
 
 var hasPassiveEvents = require('./check-passive-events')();
 
-var isIosDevice = window.navigator.userAgent.match(/iPhone|iPad|iPod/) && !window.MSStream;
+var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints;
+var isSafari = Boolean(navigator.userAgent.match(/Version\/[\d\.]+.*Safari/));
+var isIosDevice = window.navigator.userAgent.match(/iPhone|iPad|iPod/) && !window.MSStream || isSafari && isTouch;
 
 var locks = [];
 var paddableElementSelectors = [];
